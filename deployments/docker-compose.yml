@@ -1,0 +1,9 @@
+version: "2"
+services:
+  app:
+    container_name: main-app
+    build:
+      context: ../
+      dockerfile: deployments/app/Dockerfile
+    ports:
+      - "5001:5001"

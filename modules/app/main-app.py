@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_restful import Api, Resource, reqparse
+from flask_restful import Api, Resource, reqpars
 
 app = Flask(__name__)
 api = Api(app)
@@ -58,7 +58,7 @@ class User(Resource):
                 user["age"] = args["age"]
                 user["occupation"] = args["occupation"]
                 return user, 200
-        
+
         user = {
             "name": name,
             "age": args["age"],
@@ -71,7 +71,8 @@ class User(Resource):
         global users
         users = [user for user in users if user["name"] != name]
         return "{} is deleted.".format(name), 200
-      
+
 api.add_resource(User, "/user/<string:name>")
 
-app.run()
+if __name__ == '__main__':
+    app.run(debug=False,host='0.0.0.0')
