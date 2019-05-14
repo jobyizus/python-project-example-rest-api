@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_restful import Api, Resource, reqpars
+from flask_restful import Api, Resource, reqparse
 
 app = Flask(__name__)
 api = Api(app)
@@ -76,3 +76,5 @@ api.add_resource(User, "/user/<string:name>")
 
 if __name__ == '__main__':
     app.run(debug=False,host='0.0.0.0')
+
+#app.run() 
